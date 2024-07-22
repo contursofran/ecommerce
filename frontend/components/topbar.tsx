@@ -17,7 +17,7 @@ const NavLink = ({ href, currentPath, children }: NavLinkProps) => {
     <Link href={href} className="h-full items-center flex">
       <div
         className={cn(
-          isActive ? "font-bold" : "text-[#fffc]",
+          isActive ? "font-bold text-white" : "text-secondary-color",
           "hover:font-bold hover:text-white"
         )}
       >
@@ -31,9 +31,9 @@ export default function Topbar() {
   const currentPath = usePathname();
 
   return (
-    <nav className="h-12 justify-between max-w-5xl px-6 border border-[#1a1b1b] bg-black rounded-2xl mx-auto mt-5 w-full flex items-center">
+    <nav className="h-12 justify-between max-w-5xl px-6 border border-[#2E2E2E] bg-black rounded-2xl mx-auto mt-5 w-full flex items-center">
       <div className="flex gap-12 font-medium h-full items-center text-sm">
-        <div className="text-[#fff] font-bold">E-Commerce</div>
+        <div className="text-secondary-color font-bold">E-Commerce</div>
         <NavLink href="/" currentPath={currentPath}>
           Home
         </NavLink>
@@ -45,7 +45,7 @@ export default function Topbar() {
         </NavLink>
       </div>
       <div>
-        <ShoppingCart className="h-4 w-4 text-[#fffc] hover:text-white cursor-pointer" />
+        <ShoppingCart className="h-4 w-4 text-secondary-color hover:text-white cursor-pointer" />
       </div>
     </nav>
   );
