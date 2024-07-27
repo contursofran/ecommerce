@@ -1,5 +1,7 @@
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
+import { Plus, ShoppingBagIcon } from "lucide-react";
+import Image from "next/image";
 interface ProductCardProps {
   title: string;
   price: number;
@@ -8,9 +10,10 @@ interface ProductCardProps {
 
 export function ProductCard({ title, price, image }: ProductCardProps) {
   return (
-    <div className="bg-black rounded-2xl shadow-lg text-white w-full border border-[#2E2E2E] col-span-1 row-span-1 h-full aspect-square">
+    <div className="bg-black rounded-2xl shadow-lg hover:border-2 hover:border-white hover:cursor-pointer  text-white w-full border border-[#2E2E2E] col-span-1 row-span-1 h-full aspect-square">
       <div className="relative h-full w-full">
-        <img
+        <Image
+          fill
           src={image}
           alt={title}
           className="
@@ -24,12 +27,12 @@ export function ProductCard({ title, price, image }: ProductCardProps) {
             }
           )}
         >
-          <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+          <div className="flex border-[#2E2E2E] bg-transparent/80 items-center rounded-full border p-1 text-xs font-semibold text-white ">
             <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">
               {title}
             </h3>
             <Price
-              className="flex-none rounded-full bg-blue-600 p-2 text-white"
+              className="flex-none rounded-full bg-white p-2 text-black"
               amount={price.toString()}
               currencyCodeClassName="hidden @[275px]/label:inline"
               currencyCode="USD"
