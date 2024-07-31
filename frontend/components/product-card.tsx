@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Plus, ShoppingBagIcon } from "lucide-react";
 import Image from "next/image";
-import { Price } from "./Price";
+import { Price } from "./price";
 interface ProductCardProps {
   title: string;
   price: number;

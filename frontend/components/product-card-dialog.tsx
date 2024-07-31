@@ -1,18 +1,7 @@
-import {
-  DialogContent,
-  DialogTrigger,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Dialog } from "@radix-ui/react-dialog";
 import Image from "next/image";
-import { Price } from "@/components/Price";
+import { Price } from "@/components/price";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -33,7 +22,7 @@ export function ProductCardDialog({
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="w-[800px]">
+      <DialogContent className="w-[800px] bg-black">
         <div className="h-[450px] flex justify-between ">
           <div className="relative flex items-center justify-center w-1/2">
             <Image fill src={image} className="object-contain" alt={title} />
