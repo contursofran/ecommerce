@@ -1,5 +1,6 @@
 "use client";
 
+import { CartMenu } from "@/components/cart-sheet";
 import { cn } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
@@ -45,7 +46,7 @@ export default function Topbar() {
         </NavLink>
       </div>
       <div>
-        <ShoppingCart className="h-4 w-4 text-secondary-color hover:text-white cursor-pointer" />
+        <CartMenu />
       </div>
     </nav>
   );
