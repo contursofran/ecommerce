@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import useStore from "@/hooks/useStore";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, TrashIcon } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -15,7 +15,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export function CartMenu() {
+export function CartSheet() {
   const cartState = useStore(useCartStore, (state) => state);
 
   const cartCount = cartState?.cart?.length || 0;
@@ -43,24 +43,47 @@ export function CartMenu() {
       </SheetTrigger>
       <SheetContent className="mr-8 w-[350px] pb-2 bg-black">
         <SheetHeader className="flex w-full items-center justify-between">
-          <div className="text-base">Cart</div>
+          <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
-        {/* <DropdownMenuSeparator className="shadow-sm" /> */}
         {cartCount === 0 ? (
           <div className="flex h-[300px] justify-center p-2 text-center text-sm text-gray-500">
             <p className="flex items-center justify-center">
-              You have no new notifications
+              Your cart is empty
             </p>
           </div>
         ) : (
-          <ScrollArea className="-mx-1 h-[300px]" scrollBarClassName="mx-1">
-            {cartState?.cart?.map((cartItem) => (
-              <div key={cartItem.id}>
-                {cartItem != null && "catchass"}
-                {/* <DropdownMenuSeparator /> */}
-              </div>
-            ))}
-          </ScrollArea>
+          <div className="h-[90%] flex flex-col justify-between">
+            <ScrollArea className="h-[85%] mt-4" scrollBarClassName="mx-1">
+              {cartState?.cart?.map((cartItem) => (
+                <div key={cartItem.id} className="mt-4">
+                  {cartItem != null && (
+                    <div className="flex">
+                      <img
+                        src={cartItem.image}
+                        alt={cartItem.title}
+                        className="w-16 h-16"
+                      />
+                      <div className="flex flex-col justify-center pl-2">
+                        <p className="text-sm font-semibold">
+                          {cartItem.title.length < 20
+                            ? cartItem.title
+                            : cartItem.title.substring(0, 20) + "..."}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {cartItem.price}
+                        </p>
+                      </div>
+                      <TrashIcon
+                        onClick={() => cartState.removeFromCart(cartItem.id)}
+                        className="h-4 w-4 ml-auto mr-6 self-center text-secondary-color cursor-pointer"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </ScrollArea>
+            <Button className="">Checkout</Button>
+          </div>
         )}
       </SheetContent>
     </Sheet>

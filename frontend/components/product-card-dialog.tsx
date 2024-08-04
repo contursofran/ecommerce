@@ -1,24 +1,27 @@
+"use client";
+
 import { DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Dialog } from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { Price } from "@/components/price";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import useStore from "@/hooks/useStore";
+import { useCartStore } from "@/lib/store";
+import { Product } from "@/types";
 
 interface ProductCardPopoverProps {
-  title: string;
-  price: number;
-  image: string;
-  description?: string;
+  product: Product;
   children: React.ReactNode;
 }
 
 export function ProductCardDialog({
   children,
-  image,
-  title,
-  price,
+  product,
 }: ProductCardPopoverProps) {
+  const { image, title, price } = product;
+  const cartState = useStore(useCartStore, (state) => state);
+
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
@@ -53,7 +56,12 @@ export function ProductCardDialog({
               </div>
             </div>
             <div className="flex justify-end pb-2 pr-4">
-              <Button className="w-fit flex">Add to cart</Button>
+              <Button
+                onClick={() => cartState?.addToCart(product)}
+                className="w-fit flex"
+              >
+                Add to cart
+              </Button>
             </div>
           </div>
         </div>

@@ -13,12 +13,7 @@ export default async function ShopPage() {
   return (
     <div className="pt-8 max-w-5xl grid grid-cols-3 gap-8 mx-auto w-full">
       {data.map((product: Product) => (
-        <ProductCard
-          key={product.id}
-          title={product.title}
-          price={product.price}
-          image={product.image}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );

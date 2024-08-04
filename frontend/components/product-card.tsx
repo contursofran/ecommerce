@@ -4,15 +4,16 @@ import { cn } from "@/lib/utils";
 import { Plus, ShoppingBagIcon } from "lucide-react";
 import Image from "next/image";
 import { Price } from "./price";
+import { Product } from "@/types";
 interface ProductCardProps {
-  title: string;
-  price: number;
-  image: string;
+  product: Product;
 }
 
-export function ProductCard({ title, price, image }: ProductCardProps) {
+export function ProductCard({ product }: ProductCardProps) {
+  const { image, title, price } = product;
+
   return (
-    <ProductCardDialog title={title} price={price} image={image}>
+    <ProductCardDialog product={product}>
       <div className="bg-black rounded-2xl shadow-lg hover:border-2 hover:border-white hover:cursor-pointer  text-white w-full border border-[#2E2E2E] col-span-1 row-span-1 h-full aspect-square">
         <div className="relative h-full w-full">
           <Image

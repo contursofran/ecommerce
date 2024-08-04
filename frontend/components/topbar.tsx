@@ -1,6 +1,6 @@
 "use client";
 
-import { CartMenu } from "@/components/cart-sheet";
+import { CartSheet } from "@/components/cart-sheet";
 import { cn } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
@@ -46,7 +46,7 @@ export default function Topbar() {
         </NavLink>
       </div>
       <div>
-        <CartMenu />
+        <CartSheet />
       </div>
     </nav>
   );
