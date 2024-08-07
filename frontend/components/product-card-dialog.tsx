@@ -57,7 +57,9 @@ export function ProductCardDialog({
             </div>
             <div className="flex justify-end pb-2 pr-4">
               <Button
-                onClick={() => cartState?.addToCart(product)}
+                onClick={() =>
+                  cartState?.addToCart({ ...product, UID: Math.random() })
+                }
                 className="w-fit flex"
               >
                 Add to cart

@@ -74,7 +74,7 @@ export function CartSheet() {
                         </p>
                       </div>
                       <TrashIcon
-                        onClick={() => cartState.removeFromCart(cartItem.id)}
+                        onClick={() => cartState.removeFromCart(cartItem.UID)}
                         className="h-4 w-4 ml-auto mr-6 self-center text-secondary-color cursor-pointer"
                       />
                     </div>
