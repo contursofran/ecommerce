@@ -14,6 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Link from "next/link";
 
 export function CartSheet() {
   const cartState = useStore(useCartStore, (state) => state);
@@ -31,17 +32,17 @@ export function CartSheet() {
           size="sm"
           variant="outline"
         >
-          <div className="flex gap-1">
-            <ShoppingCart className="h-4 w-4 text-secondary-color hover:text-white cursor-pointer" />
+          <div className="flex gap-2">
+            <ShoppingCart className="h-4 w-4 self-center text-secondary-color hover:text-white cursor-pointer" />
             {cartCount > 0 && (
-              <div className="flex h-4 w-5 items-center justify-center rounded-full bg-black p-1 text-xs text-white dark:bg-white dark:text-black">
+              <div className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-white p-1 text-xs text-black">
                 {cartCount}
               </div>
             )}
           </div>
         </Button>
       </SheetTrigger>
-      <SheetContent className="mr-8 w-[350px] pb-2 bg-black">
+      <SheetContent className="pb-2 bg-black">
         <SheetHeader className="flex w-full items-center justify-between">
           <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
@@ -82,7 +83,9 @@ export function CartSheet() {
                 </div>
               ))}
             </ScrollArea>
-            <Button className="">Checkout</Button>
+            <Link className="w-full" href="shop/checkout">
+              <Button className="w-full">Checkout</Button>
+            </Link>
           </div>
         )}
       </SheetContent>

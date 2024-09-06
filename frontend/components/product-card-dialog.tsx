@@ -1,6 +1,10 @@
 "use client";
 
-import { DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Dialog } from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { Price } from "@/components/price";
@@ -9,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import useStore from "@/hooks/useStore";
 import { useCartStore } from "@/lib/store";
 import { Product } from "@/types";
+import { useState } from "react";
 
 interface ProductCardPopoverProps {
   product: Product;
@@ -21,9 +26,15 @@ export function ProductCardDialog({
 }: ProductCardPopoverProps) {
   const { image, title, price } = product;
   const cartState = useStore(useCartStore, (state) => state);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const addToCart = () => {
+    cartState?.addToCart({ ...product, UID: Math.random() });
+    setIsOpen(false);
+  };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>{children}</DialogTrigger>
       <DialogContent className="w-[800px] bg-black">
         <div className="h-[450px] flex justify-between ">
@@ -56,12 +67,7 @@ export function ProductCardDialog({
               </div>
             </div>
             <div className="flex justify-end pb-2 pr-4">
-              <Button
-                onClick={() =>
-                  cartState?.addToCart({ ...product, UID: Math.random() })
-                }
-                className="w-fit flex"
-              >
+              <Button onClick={() => addToCart()} className="w-fit flex">
                 Add to cart
               </Button>
             </div>

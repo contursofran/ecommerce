@@ -41,9 +41,6 @@ export default function Topbar() {
         <NavLink href="/shop" currentPath={currentPath}>
           Shop
         </NavLink>
-        <NavLink href="/about" currentPath={currentPath}>
-          About
-        </NavLink>
       </div>
       <div>
         <CartSheet />
