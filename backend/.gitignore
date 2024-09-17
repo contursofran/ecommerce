@@ -485,3 +485,4 @@ $RECYCLE.BIN/
 
 # Ignore development-specific app settings
 API/appsettings.Development.json
+**/launchSettings.json
