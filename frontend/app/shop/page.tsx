@@ -20,9 +20,15 @@ export default async function ShopPage() {
   console.log(data);
   return (
     <div className="pt-8 max-w-5xl grid grid-cols-3 gap-8 mx-auto w-full">
-      {data.map((product: Product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+      {data ? (
+        data.map((product: Product) => (
+          <ProductCard key={product.id} product={product} />
+        ))
+      ) : (
+        <p className="text-center col-span-3">
+          Failed to load products. Please try again later.
+        </p>
+      )}
     </div>
   );
 }
