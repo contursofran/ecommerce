@@ -3,9 +3,15 @@ import { Product } from "@/types";
 import { promises as fs } from "fs";
 
 async function getData() {
-  const res = await fetch("http://localhost:5247/api/Products");
-  if (res.ok) {
-    return res.json();
+  try {
+    const res = await fetch(process.env.API_URL + "/products");
+    if (res.ok) {
+      return res.json();
+    } else {
+      console.error("Failed to fetch products:", res.statusText);
+    }
+  } catch (error) {
+    console.error("Network error:", error);
   }
 }
 
