@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href="https://ecommerce-opal-beta.vercel.app/">
+  <img alt="Thumbnail" src="./thumbnail.png">
+  <h1 align="center" >Ecommerce Website</h1>
+</a>
+<p align="center">
+  A simple web chat application made with React and .NET
+</p>
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This is a personal project built with React and .NET. It is a simple ecommerce website that allows users to browse products, add them to cart, and checkout. The website is built with Next.js and Tailwind CSS. The backend is built with C# and .NET. The website is hosted on Vercel and the backend is hosted on Azure. The database is hosted on Azure using Microsoft SQL Server.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Frontend Framework:** [Next.js](https://nextjs.org)
+- **Backend Framework:** [.NET](https://dotnet.microsoft.com)
+- **Database:** [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **UI Components:** [Shadcn/ui](https://ui.shadcn.com)
+- **Deployment:** [Vercel](https://vercel.com/) and [Azure](https://azure.microsoft.com)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## TODO
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Features
+  - [] Checkout page
+  - [] Integration with payment gateway
+  - [] User authentication
