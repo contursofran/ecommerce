@@ -12,8 +12,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240917162020_NewData")]
-    partial class NewData
+    [Migration("20240919164831_UpdatedData")]
+    partial class UpdatedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
