@@ -3,7 +3,7 @@
   <h1 align="center" >Ecommerce Website</h1>
 </a>
 <p align="center">
-  A simple web chat application made with React and .NET
+  A simple web ecommerce website made with React and .NET
 </p>
 
 ## Introduction
