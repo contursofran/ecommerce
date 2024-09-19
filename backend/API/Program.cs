@@ -35,6 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowVercel");
 app.UseHttpsRedirection();
 
 using var scope = app.Services.CreateScope();
