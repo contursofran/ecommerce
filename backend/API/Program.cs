@@ -9,6 +9,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        "AllowVercel",
+        builder =>
+            builder
+                .WithOrigins("https://ecommerce-opal-beta.vercel.app/")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+    );
+});
+
 var connectionString = builder.Environment.IsDevelopment()
     ? builder.Configuration.GetConnectionString("DefaultConnection")
     : builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
