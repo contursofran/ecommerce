@@ -13,11 +13,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(
         "AllowVercel",
-        builder =>
-            builder
-                .WithOrigins("https://ecommerce-opal-beta.vercel.app/")
-                .AllowAnyHeader()
-                .AllowAnyMethod()
+        builder => builder.WithOrigins("https://ecommerce-opal-beta.vercel.app/")
     );
 });
 
